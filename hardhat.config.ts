@@ -24,9 +24,9 @@ const ETHERSCAN_API_KEY =
   process.env.ETHERSCAN_API_KEY ||
   "";
 
-// Etherlink
-const ETHERLINK_RPC_URL =
-  process.env.ETHERLINK_RPC_URL ||
+// Etherlink testnet
+const ETHERLINK_TESTNET_RPC_URL =
+  process.env.ETHERLINK_TESTNET_RPC_URL ||
   "https://node.ghostnet.etherlink.com";
 const ETHERLINK_API_KEY =
   process.env.ETHERLINK_API_KEY ||
@@ -85,7 +85,7 @@ const config: HardhatUserConfig = {
     },
     etherlinkTestnet: {
       chainId: 128123,
-      url: ETHERLINK_RPC_URL,
+      url: ETHERLINK_TESTNET_RPC_URL,
       accounts: [PRIVATE_KEY],
     },
     arbitrumSepolia: {
@@ -97,6 +97,15 @@ const config: HardhatUserConfig = {
       chainId: 97,
       url: BSC_TESTNET_URL,
       accounts: [PRIVATE_KEY],
+    }
+  },
+  // hardhat-deploy named account system
+  namedAccounts: {
+    deployer: {
+      default: 0, // Deployer will be the first private key above
+    },
+    assistant: {
+      default: 1, // Assistant will be the second private key above
     }
   },
   etherscan: {

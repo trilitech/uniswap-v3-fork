@@ -12,3 +12,7 @@ node_modules
 # solidity-coverage files
 /coverage
 /coverage.json
+
+# hardhat-deploy
+# comments to push the deployments
+deployments
